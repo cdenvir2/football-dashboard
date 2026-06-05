@@ -396,14 +396,19 @@ match_df, shots_df = load_understat_data(match_id)
 home_name, away_name = get_team_names(match_df, selected_match_row)
 home_name = clean_team_name(home_name)
 away_name = clean_team_name(away_name)
+h_goals = match_df["h_goals"].iloc[0]
+a_goals = match_df["a_goals"].iloc[0]
 
 st.markdown(
     f"""
     <h1 style='text-align: center;'>
-        Home vs Away Shot Analytics Dashboard
+        Shot Analytics Dashboard
     </h1>
     <h4 style='text-align: center; color: #B0B0B0;'>
         {home_name} vs {away_name} | From Minute {start_minute} | Understat Data
+    </h4>
+    <h4 style='text-align: center; color: #B0B0B0;'>
+        {h_goals} - {a_goals}
     </h4>
     <hr>
     """,
